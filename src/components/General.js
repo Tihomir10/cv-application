@@ -1,55 +1,24 @@
 import React from 'react';
 
 class General extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      name: 'John Doe',
-      email: 'JohnDoe@email.com',
-      phone: '123-456-789',
-      submitted: true
-    }
-
-    this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleEdit = this.handleEdit.bind(this)
-  }
-
-  handleChange(event) {
-    this.setState({[event.target.name]: event.target.value})
-  }
-
-  handleSubmit(event) {
-    this.setState({submitted: true})
-    event.preventDefault();
-  }
-
-  handleEdit() {
-    this.setState({submitted: false})
-  }
 
   render() {
-
     const viewTemplate = (
       <div>
         <div className="row">
           <label>Name:<br/>
-            <div>{this.state.name}</div>
+            <div>{this.props.name}</div>
           </label>
         </div>
         <div className="row">
           <label>Email:<br/>
-            <div>{this.state.email}</div>
+            <div>{this.props.email}</div>
           </label>
         </div>
         <div className="row">
           <label>Phone number:<br/>
-            <div>{this.state.phone}</div>
+            <div>{this.props.phone}</div>
           </label>
-        </div>
-        <div className="row">
-          <button onClick={this.handleEdit}>Edit</button>
         </div>
       </div>
     )
@@ -59,28 +28,25 @@ class General extends React.Component {
         <form>
           <div className="row">
             <label>Name:<br/>
-              <input type="text" name="name" value={this.state.name} onChange={this.handleChange} />
+              <input type="text" name="name" value={this.props.name} onChange={this.props.handleChange} />
             </label>
           </div>
           <div className="row">
             <label>Email:<br/>
-              <input type="text" name="email" value={this.state.email} onChange={this.handleChange} />
+              <input type="text" name="email" value={this.props.email} onChange={this.props.handleChange} />
             </label>
           </div>
           <div className="row">
             <label>Phone number:<br/>
-              <input type="text" name="phone" value={this.state.phone} onChange={this.handleChange} />
+              <input type="text" name="phone" value={this.props.phone} onChange={this.props.handleChange} />
             </label>
-          </div>
-          <div className="row">
-            <input type="submit" value="Submit" onClick={this.handleSubmit} />
           </div>
         </form>
       </div>
     )
 
     return (
-    <div>{this.state.submitted ? viewTemplate : editTemplate}</div>
+    <div>{this.props.submitted ? viewTemplate : editTemplate}</div>
     )
   }
 }
