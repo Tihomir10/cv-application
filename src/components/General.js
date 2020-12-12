@@ -1,54 +1,47 @@
-import React from 'react';
-
-class General extends React.Component {
-
-  render() {
-    const viewTemplate = (
-      <div>
-        <div className="row">
-          <label>Name:<br/>
-            <div>{this.props.name}</div>
-          </label>
-        </div>
-        <div className="row">
-          <label>Email:<br/>
-            <div>{this.props.email}</div>
-          </label>
-        </div>
-        <div className="row">
-          <label>Phone number:<br/>
-            <div>{this.props.phone}</div>
-          </label>
-        </div>
+function GeneralForm(props) {
+  return (
+  <div>
+    <form>
+      <div className="row">
+        <label>Name:<br/>
+          <input type="text" name="name" value={props.person.name} onChange={props.changePersonData} />
+        </label>
       </div>
-    )
-
-    const editTemplate = (
-      <div>
-        <form>
-          <div className="row">
-            <label>Name:<br/>
-              <input type="text" name="name" value={this.props.name} onChange={this.props.handleChange} />
-            </label>
-          </div>
-          <div className="row">
-            <label>Email:<br/>
-              <input type="text" name="email" value={this.props.email} onChange={this.props.handleChange} />
-            </label>
-          </div>
-          <div className="row">
-            <label>Phone number:<br/>
-              <input type="text" name="phone" value={this.props.phone} onChange={this.props.handleChange} />
-            </label>
-          </div>
-        </form>
+      <div className="row">
+        <label>Email:<br/>
+          <input type="text" name="email" value={props.person.email} onChange={props.changePersonData} />
+        </label>
       </div>
-    )
-
-    return (
-    <div>{this.props.submitted ? viewTemplate : editTemplate}</div>
-    )
-  }
+      <div className="row">
+        <label>Phone number:<br/>
+          <input type="text" name="phone" value={props.person.phone} onChange={props.changePersonData} />
+        </label>
+      </div>
+    </form>
+  </div>
+  )
 }
 
-export default General;
+function General(props) {
+  return (
+    <div>
+      <div className="row">
+        <label>Name:<br/>
+          <div>{props.person.name}</div>
+        </label>
+      </div>
+      <div className="row">
+        <label>Email:<br/>
+          <div>{props.person.email}</div>
+        </label>
+      </div>
+      <div className="row">
+        <label>Phone number:<br/>
+          <div>{props.person.phone}</div>
+        </label>
+      </div>
+    </div>
+  )
+}
+
+export { General, GeneralForm }

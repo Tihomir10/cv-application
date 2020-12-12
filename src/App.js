@@ -1,77 +1,52 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import General from './components/General';
-import Education from './components/Education';
+import { GeneralForm, General } from './components/General';
+import { EducationForm, Education } from './components/Education';
 
-class App extends React.Component {
-  constructor(props) {
-    super(props)
+function App() {
+  const [ person, setPerson ] = useState({name: 'John Doe', email: 'johndoe@email.com', phone: '12345'});
 
-    this.state = {
-      name: 'John Doe',
-      email: 'JohnDoe@email.com',
-      phone: '123-456-789',
-      school: 'University of Berlin',
-      title: 'Master of None',
-      date: '2011 - 2014',
-      submitted: true
-    }
+  const [ submit, setSubmit] = useState(false);
 
-    this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleEdit = this.handleEdit.bind(this)
+  const [ education, setEducation ] = useState({school: 'University of Berlin', title: 'Master of None', date: '2011 - 2014'});
+
+  function changePersonData(event) {
+    setPerson({
+      ...person,
+      [event.target.name]: event.target.value
+    })
+  };
+
+  function changeEducationData(event) {
+    setEducation({
+      ...education,
+      [event.target.name]: event.target.value
+    })
   }
 
-  handleChange(event) {
-    this.setState({[event.target.name]: event.target.value})
-  }
-
-  handleSubmit(event) {
-    this.setState({submitted: true})
-    event.preventDefault();
-  }
-
-  handleEdit() {
-    this.setState({submitted: false})
-  }
-
-  render() {
-
-    const funcProps = {
-      handleChange: this.handleChange,
-      handleSubmit: this.handleSubmit,
-      handleEdit: this.handleEdit,
-      submitted: this.state.submitted
-    }
-
+  if (submit) {
     return (
       <div className="container">
-        <div className="row pt-3 pl-4">
-          <General 
-            name={this.state.name} 
-            email={this.state.email}
-            phone={this.state.phone}
-            {...funcProps}
-          />
-        </div>
-        <div className="row pl-4">
-          <Education 
-            school={this.state.school}
-            title={this.state.title}
-            date={this.state.date}
-            {...funcProps}
-          />
-        </div>
-        <div className="row pl-4">
-        {this.state.submitted ? 
-          <button onClick={this.handleEdit}>Edit</button> :
-          <button onClick={this.handleSubmit}>Submit</button>
-        }
-        </div>
+        <General person={person} />
+        <Education education={education} />
+        <button onClick={() => setSubmit(false)}>Edit</button>
       </div>
-    );
+    )
+  } else {
+    return (
+      <div className='container'>
+        <GeneralForm 
+          person={person}
+          changePersonData={changePersonData}
+        />
+        <EducationForm 
+          education={education}
+          changeEducationData={changeEducationData}
+        />
+        <button onClick={() => setSubmit(true)}>Submit</button>
+      </div>
+    )
   }
 }
-
 
 export default App;

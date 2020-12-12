@@ -1,54 +1,47 @@
-import React from 'react';
-
-class Education extends React.Component {
-
-  render() {
-      const viewTemplate = (
-        <div>
-          <div className="row">
-            <label>School name:<br/>
-              <div>{this.props.school}</div>
-            </label>
-          </div>
-          <div className="row">
-            <label>Title of the study:<br/>
-              <div>{this.props.title}</div>
-            </label>
-          </div>
-          <div className="row">
-            <label>Date of the study:<br/>
-              <div>{this.props.date}</div>
-            </label>
-          </div>
+function EducationForm(props) {
+  return (
+    <div>
+      <form>
+        <div className="row">
+          <label>School name:<br/>
+            <input type="text" name="school" value={props.education.school} onChange={props.changeEducationData} />
+          </label>
         </div>
-      )
-
-      const editTemplate = (
-        <div>
-          <form>
-            <div className="row">
-              <label>School name:<br/>
-                <input type="text" name="school" value={this.props.school} onChange={this.props.handleChange} />
-              </label>
-            </div>
-            <div className="row">
-              <label>Title of the study:<br/>
-                <input type="text" name="title" value={this.props.title} onChange={this.props.handleChange} />
-              </label>
-            </div>
-            <div className="row">
-              <label>Date of study:<br/>
-                <input type="text" name="date" value={this.props.date} onChange={this.props.handleChange} />
-              </label>
-            </div>
-          </form>
+        <div className="row">
+          <label>Title of the study:<br/>
+            <input type="text" name="title" value={props.education.title} onChange={props.changeEducationData} />
+          </label>
         </div>
-      )
-
-      return (
-        <div>{this.props.submitted ? viewTemplate : editTemplate}</div>
-      )
-  }
+        <div className="row">
+          <label>Date of study:<br/>
+            <input type="text" name="date" value={props.education.date} onChange={props.changeEducationData} />
+          </label>
+        </div>
+      </form>
+    </div>
+  )
 }
 
-export default Education;
+function Education(props) {
+  return (
+    <div>
+      <div className="row">
+        <label>School name:<br/>
+          <div>{props.education.school}</div>
+        </label>
+      </div>
+      <div className="row">
+        <label>Title of the study:<br/>
+          <div>{props.education.title}</div>
+        </label>
+      </div>
+      <div className="row">
+        <label>Date of the study:<br/>
+          <div>{props.education.date}</div>
+        </label>
+      </div>
+    </div>
+  )
+}
+
+export { EducationForm, Education }
