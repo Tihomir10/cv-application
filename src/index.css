@@ -25,6 +25,22 @@ input {
   font-size: x-large;
 }
 
-h3 {
+h3,
+span {
   margin-top: 1.6rem;
+}
+
+#edu-title-div {
+  display: flex;
+  justify-content: center;
+}
+
+span {
+  font-size: x-large;
+  font-weight: 900;
+  margin-left: 0.2rem;
+}
+
+span:hover {
+  cursor: pointer;
 }

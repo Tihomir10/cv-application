@@ -30,8 +30,6 @@ function General(props) {
         <label>Name:<br/>
           <div>{props.person.name}</div>
         </label>
-      </div>
-      <div className="row">
         <label>Email:<br/>
           <div>{props.person.email}</div>
         </label>

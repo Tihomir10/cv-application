@@ -29,7 +29,9 @@ function App() {
       <div className="container">
         <General person={person} />
         <Education education={education} />
-        <button onClick={() => setSubmit(false)}>Edit</button>
+        <div className="row">
+          <button onClick={() => setSubmit(false)} className='btn btn-primary'>Edit</button>
+        </div>
       </div>
     )
   } else {

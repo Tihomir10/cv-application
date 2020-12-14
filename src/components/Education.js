@@ -30,8 +30,6 @@ function Education(props) {
         <label>School name:<br/>
           <div>{props.education.school}</div>
         </label>
-      </div>
-      <div className="row">
         <label>Title of the study:<br/>
           <div>{props.education.title}</div>
         </label>
