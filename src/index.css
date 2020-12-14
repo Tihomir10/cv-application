@@ -1,0 +1,30 @@
+.row {
+  justify-content: space-around;
+  padding: 1rem;
+}
+
+div {
+  color: blue;
+}
+
+form {
+  background-color: #f7ff03;
+  border: 1px solid;
+  border-radius: 5px;
+  margin-bottom: 4rem;
+}
+
+label,
+input,
+h3 {
+  text-align: center;
+}
+
+input {
+  border-radius: 5px;
+  font-size: x-large;
+}
+
+h3 {
+  margin-top: 1.6rem;
+}

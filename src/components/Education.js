@@ -1,13 +1,14 @@
+import '../index.css'
+
 function EducationForm(props) {
   return (
     <div>
+      <h3>Education Info</h3>
       <form>
         <div className="row">
           <label>School name:<br/>
             <input type="text" name="school" value={props.education.school} onChange={props.changeEducationData} />
           </label>
-        </div>
-        <div className="row">
           <label>Title of the study:<br/>
             <input type="text" name="title" value={props.education.title} onChange={props.changeEducationData} />
           </label>

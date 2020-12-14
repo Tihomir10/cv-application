@@ -43,7 +43,9 @@ function App() {
           education={education}
           changeEducationData={changeEducationData}
         />
-        <button onClick={() => setSubmit(true)}>Submit</button>
+        <div className="row">
+         <button onClick={() => setSubmit(true)} className='btn btn-primary'>Submit</button>
+        </div>
       </div>
     )
   }
