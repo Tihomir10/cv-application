@@ -1,73 +1,24 @@
-import { useState } from 'react'
-
-import Education from './Education'
-
 function EducationForm(props) {
-  const [ education, setEducation ] = useState([{id: 0, school: 'University of Berlin', title: 'Master of None', date: '2011 - 2014'}]);
-
-  const [ school, setSchool ] = useState('');
-
-  const [ title, setTitle ] = useState('');
-
-  const [ date, setDate ] = useState('');
-
-  function changeEducationData(event) {
-    setEducation([...education,{
-      id: education.length,
-      school: school,
-      title: title,
-      date: date
-    }])
-    event.preventDefault()
-  } 
-
-  function handleSchoolChange(event) {
-    setSchool(event.target.value)
-  }
-
-  function handleTitleChange(event) {
-    setTitle(event.target.value)
-  }
-
-  function handleDateChange(event) {
-    setDate(event.target.value)
-  }
-
-  if (props.submit) {
-    return (
-      <div>
-        <h3>Education Info</h3>
-        {education.map(obj => {
-        return (
-          <div>
-            <Education obj={obj} />
-          </div>
-        )
-      })}
-      </div>
-    )
-  }
-
   return (
     <div className="container">
       <div>
-        <h3>Education</h3>
+        <h3>Education Form</h3>
         <form>
           <div className="row">
             <label>School:<br/>
-              <input type="text" name="school" value={school} onChange={handleSchoolChange} />
+              <input type="text" name="school" value={props.school} onChange={props.handleSchoolChange} />
             </label>
             <label>Title:<br/>
-              <input type="text" name="title" value={title} onChange={handleTitleChange} />
+              <input type="text" name="title" value={props.title} onChange={props.handleTitleChange} />
             </label>
           </div>
           <div className="row">
             <label>Date:<br/>
-              <input type="text" name="date" value={date} onChange={handleDateChange} />
+              <input type="text" name="date" value={props.date} onChange={props.handleDateChange} />
             </label>
           </div>
         </form>
-        <button className="btn btn-primary" onClick={changeEducationData}>Add Education</button>
+        <button className="btn btn-primary" onClick={props.updateEducationData}>Add Education</button>
       </div>
     </div>
   )

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { GeneralForm, General } from './components/General';
-import EducationForm from './components/EducationForm';
+import EducationHandler from './components/EducationHandler';
 import './index.css'
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
     return (
       <div className="container">
         <General person={person} />
-        <EducationForm submit={submit} />
+        <EducationHandler submit={submit} />
         <div className="row">
           <button onClick={() => setSubmit(false)} className='btn btn-primary'>Edit</button>
         </div>
@@ -33,7 +33,7 @@ function App() {
         person={person}
         changePersonData={changePersonData}
       />
-      <EducationForm submit={submit} />
+      <EducationHandler submit={submit} />
       <div className="row">
         <button onClick={() => setSubmit(true)} className='btn btn-primary'>Submit</button>
       </div>
