@@ -2,7 +2,6 @@ function EducationForm(props) {
   return (
     <div className="container">
       <div>
-        <h3>Education Form</h3>
         <form>
           <div className="row">
             <label>School:<br/>
@@ -18,7 +17,6 @@ function EducationForm(props) {
             </label>
           </div>
         </form>
-        <button className="btn btn-primary" onClick={props.updateEducationData}>Add Education</button>
       </div>
     </div>
   )

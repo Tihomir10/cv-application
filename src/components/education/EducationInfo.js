@@ -1,4 +1,4 @@
-function Education(props) {
+function EducationInfo(props) {
   return (
     <div>
       <div className="info">
@@ -20,4 +20,4 @@ function Education(props) {
   )
 }
 
-export default Education; 
+export default EducationInfo; 
