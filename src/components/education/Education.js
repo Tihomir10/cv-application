@@ -36,7 +36,7 @@ function Education() {
     const isValid = validate();
     if (isValid) {
       setEducation([...education,{
-        id: education.length,
+        id: Math.random(),
         school: school,
         title: title,
         date: date
