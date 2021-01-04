@@ -7,23 +7,23 @@ function EducationForm(props) {
           <form>
             <div className="row">
               <label>School:<br/>
-                <input type="text" name="school" value={props.school} onChange={props.handleSchoolChange} />
-                <div class='err-msg'>{props.schoolError}</div>
+                <input type="text" name="school" onChange={props.handleChange}  />
+                <div class='err-msg'></div>
               </label>
               <label>Title:<br/>
-                <input type="text" name="title" value={props.title} onChange={props.handleTitleChange} />
-                <div class='err-msg'>{props.titleError}</div>
+                <input type="text" name="title" onChange={props.handleChange}  />
+                <div class='err-msg'></div>
               </label>
             </div>
             <div className="row">
               <label>Date:<br/>
-                <input type="text" name="date" value={props.date} onChange={props.handleDateChange} />
+                <input type="text" name="date" onChange={props.handleChange} />
               </label>
             </div>
           </form>
         </div>
       </div>
-      <button className='btn btn-primary' onClick={props.updateEducationData}>Submit</button>
+      <input type='submit' className='btn btn-primary' onClick={props.updateEducationData} />
     </div>
   )
 }
