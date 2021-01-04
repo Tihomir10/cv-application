@@ -34,9 +34,10 @@ function Education() {
 
   function updateEducationData() {
     const isValid = validate();
+    var lastEduObj = education[education.length - 1]
     if (isValid) {
       setEducation([...education,{
-        id: Math.random(),
+        id: lastEduObj.id + 1,
         school: school,
         title: title,
         date: date
