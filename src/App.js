@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import Person from './components/person/Person';
 import Education from './components/education/Education';
+import WorkExperience from './components/experience/WorkExperience'
 import './index.css'
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
     <div className='container'>
       <Person />
       <Education />
+      <WorkExperience />
     </div>
   )
 }
