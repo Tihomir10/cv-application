@@ -1,7 +1,6 @@
 function EducationForm(props) {
   return (
-    <div className='edu-edit'>
-      <h3>Education Form</h3>
+    <div className='btn-position'>
       <div className="container">
         <div>
           <form>
@@ -23,7 +22,6 @@ function EducationForm(props) {
           </form>
         </div>
       </div>
-      <input type='submit' className='btn btn-primary' onClick={props.updateEducationData} />
     </div>
   )
 }

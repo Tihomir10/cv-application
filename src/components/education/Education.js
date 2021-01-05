@@ -4,17 +4,19 @@ import EducationInfo from './EducationInfo';
 import EducationForm from './EducationForm';
 
 function Education() {
-  const [ education, setEducation ] = useState([{id: 0, school: 'University of Berlin', title: 'Master of None', date: '2011 - 2014'}]);
+  const [ education, setEducation ] = useState([]);
 
   const [ newEducation, setNewEducation ] = useState({});
 
   const [ showForm, setShowForm ] = useState(false)
 
   function updateEducationData(event) {
-    var lastEduObj = education[education.length - 1]
-    console.log(newEducation)
+    var lastEduObjId = 0;
+    if (education[0]) {
+      lastEduObjId = education[education.length - 1].id
+    }
     setEducation([...education,{
-      id: lastEduObj.id + 1,
+      id: lastEduObjId + 1,
       school: newEducation.school,
       title: newEducation.title,
       date: newEducation.date
@@ -34,7 +36,7 @@ function Education() {
 
   if (showForm) {
     return (
-      <div>
+      <div className='btn-position'>
         <div>
           <h3>Education Info</h3>
             {education.map(obj => {
@@ -47,11 +49,12 @@ function Education() {
               </div>
             )
           })}
-        </div>
+        </div >
         <EducationForm 
-          updateEducationData={updateEducationData}
           handleChange={handleChange}
         />
+        <input type='submit' className='btn btn-primary' onClick={updateEducationData} />
+        <button className='btn btn-primary' onClick={() => {setShowForm(false)}}>Close</button> 
       </div>
     )
   }

@@ -3,7 +3,7 @@ function EducationInfo(props) {
     <div>
       <div className="info">
         <div className="delete-span-div">
-        <span onClick={props.deleteEducation} id={props.obj.id}>X</span>
+          <span onClick={props.deleteEducation} id={props.obj.id}>X</span>
         </div>
         <div className="row">
           <label>School name:<br/>
