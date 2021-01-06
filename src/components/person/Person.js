@@ -4,7 +4,7 @@ import PersonForm from './PersonForm';
 import PersonInfo from './PersonInfo';
 
 function Person() {
-  const [ person, setPerson ] = useState({name: 'John Doe', email: 'johndoe@email.com', phone: '12345'});
+  const [ person, setPerson ] = useState({});
 
   const [ edit, setEdit ] = useState(false);
 
@@ -17,7 +17,7 @@ function Person() {
 
   if (edit) {
     return (
-      <div className='info-edit'>
+      <div className='btn-position'>
         <PersonForm 
           person={person}
           changePersonData={changePersonData}
@@ -28,14 +28,30 @@ function Person() {
       </div>
     )
   }
+
+  if (Object.keys(person).length !== 0) {
+    return (
+      <div className='btn-position'>
+        <PersonInfo person={person} />
+        <div className='delete-btn-div'>
+          <button className='btn btn-primary' onClick={() => {setEdit(true)}}>Edit</button>
+        </div>     
+      </div>
+    )
+  }
+
   return (
-    <div className='info-edit'>
-      <PersonInfo person={person} />
-      <div className='delete-btn-div'>
-        <button className='btn btn-primary' onClick={() => {setEdit(true)}}>Edit</button>
-      </div>     
+    <div>
+      <h3>Basic Info</h3>
+      <div className='btn-position'>
+        <div className='delete-btn-div'>
+          <button className='btn btn-primary' onClick={() => {setEdit(true)}}>Add Peronal Info</button>
+        </div>     
+      </div>
     </div>
   )
+
+ 
 }
 
 export default Person;
